@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleLoading">
+        <attr name="outerColor" format="color" />
+        <attr name="innerColor" format="color" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="innerAlpha" format="integer" />
+        <attr name="outerAlpha" format="integer" />
+    </declare-styleable>
+</resources>
