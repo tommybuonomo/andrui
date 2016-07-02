@@ -1,6 +1,6 @@
 #Circle Loading Animation
 
-A cool circle loading view inspired by [this post](http://www.materialup.com/posts/material-design-circle-loading) on [MaterialUp](http://www.materialup.com/)
+A cool circle loading animation inspired by [this post](http://www.materialup.com/posts/material-design-circle-loading) on [MaterialUp](http://www.materialup.com/)
 
 ![ezgif com-video-to-gif 3](https://cloud.githubusercontent.com/assets/15737675/16541358/dc99a04a-4080-11e6-84a2-d506a2656e35.gif) ![ezgif com-video-to-gif 2](https://cloud.githubusercontent.com/assets/15737675/16541338/434dd686-4080-11e6-8c12-0d69bfb65888.gif) ![ezgif com-video-to-gif 4](https://cloud.githubusercontent.com/assets/15737675/16541470/3329629e-4084-11e6-90d2-735529606594.gif) ![ezgif com-video-to-gif 5](https://cloud.githubusercontent.com/assets/15737675/16541635/f74cc2f8-4087-11e6-9bdc-b6c245b3a0be.gif)
 
