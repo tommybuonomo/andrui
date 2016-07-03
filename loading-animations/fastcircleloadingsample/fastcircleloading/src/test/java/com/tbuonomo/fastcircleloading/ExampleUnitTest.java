@@ -1,8 +1,8 @@
-package com.tbuonomo.circleloadingsample;
+package com.tbuonomo.fastcircleloading;
 
-import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
 
 /**
  * To work on unit tests, switch the Test Artifact in the Build Variants view.
@@ -10,6 +10,6 @@ import org.junit.Test;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        Assert.assertEquals(4, 2 + 2);
+        assertEquals(4, 2 + 2);
     }
 }

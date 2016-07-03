@@ -2,8 +2,6 @@ package com.tbuonomo.circleloadingsample;
 
 import android.animation.Animator;
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;

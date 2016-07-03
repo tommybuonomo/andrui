@@ -11,11 +11,19 @@ buildscript {
 }
 
 group = 'com.tbuonomo.andrui'
-version = '0.1'
+version = '0.2'
 
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+artifacts {
+    archives generateSourcesJar
+}
 
 bintray {
     def Properties localProps = new Properties()
@@ -28,14 +36,14 @@ bintray {
         name = 'circle-loading'
 
         version {
-            name = '0.1'
-            desc = 'Circle loading animation'
-            vcsTag = '0.1'
+            name = '0.2'
+            desc = 'Add checkstyle and resolve .jar'
+            vcsTag = '0.2'
         }
 
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/tommybuonomo/andrui/.git'
-        websiteUrl = 'https://github.com/tommybuonomo/android-utils.git'
+        vcsUrl = 'https://github.com/tommybuonomo/andrui'
+        websiteUrl = 'https://github.com/tommybuonomo/andrui'
     }
     configurations = ['archives']
 }
