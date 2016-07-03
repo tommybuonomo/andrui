@@ -4,15 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.tbuonomo.fastcircleloadingsample.MainActivity"
-    android:background="#0277BD">
+    android:background="#424242">
 
-    <com.tbuonomo.fastcircleloading.FastCircleLoading
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"/>
+    <RelativeLayout
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true">
+        <com.tbuonomo.fastcircleloading.FastCircleLoading
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            app:backgroundColor="#00E676"
+            app:pointColor="#424242"
+            app:pointSize="5dp"
+            app:interpolator="anticipate_overshoot"
+            app:animationDuration="2500"/>
+
+        <com.tbuonomo.fastcircleloading.FastCircleLoading
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            app:backgroundColor="#FFEA00"
+            app:pointColor="#424242"
+            app:pointSize="5dp"
+            app:interpolator="anticipate_overshoot"
+            app:animationDuration="2500"/>
+
+        <com.tbuonomo.fastcircleloading.FastCircleLoading
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            app:backgroundColor="#00E5FF"
+            app:pointColor="#424242"
+            app:pointSize="5dp"
+            app:interpolator="anticipate_overshoot"
+            app:animationDuration="2500"/>
+
+        <com.tbuonomo.fastcircleloading.FastCircleLoading
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            app:backgroundColor="#D50000"
+            app:pointColor="#424242"
+            app:pointSize="5dp"
+            app:interpolator="anticipate_overshoot"
+            app:animationDuration="2500"/>
+    </RelativeLayout>
 </RelativeLayout>

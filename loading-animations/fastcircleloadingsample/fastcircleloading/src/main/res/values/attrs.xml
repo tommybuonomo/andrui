@@ -5,5 +5,11 @@
         <attr name="animationDuration" format="integer" />
         <attr name="backgroundColor" format="color" />
         <attr name="pointSize" format="dimension" />
+        <attr name="interpolator" format="enum">
+            <enum name="fastOutSlowIn" value="0"/>
+            <enum name="anticipate_overshoot" value="1"/>
+            <enum name="overshoot" value="2"/>
+            <enum name="accelerateDecelerate" value="3"/>
+        </attr>
     </declare-styleable>
 </resources>

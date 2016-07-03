@@ -19,6 +19,28 @@ android {
     }
 }
 
+/*Checkstyle*/
+apply plugin: 'checkstyle'
+checkstyle {
+    configFile project.file('checkstyle.xml')
+    showViolations true
+}
+
+task checkstyle(type: Checkstyle) {
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+
+    configFile rootProject.file('checkstyle.xml')
+
+    // empty classpath
+    classpath = files()
+}
+
+preBuild.dependsOn('checkstyle')
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'

@@ -11,7 +11,10 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.AttributeSet;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AnticipateOvershootInterpolator;
 import android.view.animation.Interpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -19,7 +22,23 @@ import android.widget.RelativeLayout;
  * Created by tommy on 02/07/16.
  */
 public class FastCircleLoading extends RelativeLayout {
-    private static final int DEFAULT_DURATION = 2000;
+    private enum InterpolatorValues {
+        FAST_IN_FAST_OUT (new FastOutSlowInInterpolator()),
+        ANTICIPATE_OVERSHOOT(new AnticipateOvershootInterpolator()),
+        OVERSHOOT(new OvershootInterpolator()),
+        ACCELERATE_DECELERATE(new AccelerateDecelerateInterpolator());
+
+        private Interpolator mInterpolator;
+
+        InterpolatorValues(Interpolator interpolator) {
+            this.mInterpolator = interpolator;
+        }
+
+        public Interpolator getInterpolator() {
+            return mInterpolator;
+        }
+    }
+    private static final int DEFAULT_DURATION = 1000;
     private static final int DEFAULT_POINT_COLOR = Color.WHITE;
     private static final int DEFAULT_BACKGROUND_COLOR = Color.parseColor("#01579B");
 
@@ -73,7 +92,10 @@ public class FastCircleLoading extends RelativeLayout {
             setUpCircleColors(mBackgroundCircle, backgroundColor == -1 ? DEFAULT_BACKGROUND_COLOR : backgroundColor);
 
             int duration = a.getInt(R.styleable.FastCircleLoading_animationDuration, -1);
-            setUpAnimators(duration == -1 || duration < 0 ? DEFAULT_DURATION : duration);
+            int interpolator = a.getInt(R.styleable.FastCircleLoading_interpolator, -1);
+
+            setUpAnimators(duration == -1 || duration < 0 ? DEFAULT_DURATION : duration,
+                    interpolator == -1 ? InterpolatorValues.FAST_IN_FAST_OUT.getInterpolator() : InterpolatorValues.values()[interpolator].getInterpolator());
 
             int pointSize = a.getDimensionPixelSize(R.styleable.FastCircleLoading_pointSize, -1);
             if (pointSize != -1) {
@@ -110,10 +132,10 @@ public class FastCircleLoading extends RelativeLayout {
         params3.setMargins(0, 0, margin, 0);
     }
 
-    private void setUpAnimators(int duration) {
+    private void setUpAnimators(int duration, Interpolator pointInterpolator) {
         final ObjectAnimator animator = ObjectAnimator.ofFloat(this, ROTATION, 0, 720);
         animator.setDuration(duration);
-        animator.setInterpolator(new FastOutSlowInInterpolator());
+        animator.setInterpolator(pointInterpolator);
         animator.setStartDelay(500);
 
         Interpolator interpolator = new Interpolator() {
