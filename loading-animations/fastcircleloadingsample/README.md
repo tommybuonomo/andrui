@@ -7,18 +7,13 @@ A cool fast circle loading animation inspired by [this post](http://www.material
 
 
 ##How to
-###Installation
+####Gradle
 ```Gradle
-repositories {
-    maven {
-        url  "https://dl.bintray.com/tbuonomo/maven/"
-    }
-}
 dependencies {
     compile 'com.tbuonomo.andrui:fastcircleloading:1.0.0'
 }
 ```
-###Attributes
+####In your XML layout
 ```Xml
 <com.tbuonomo.fastcircleloading.FastCircleLoading
     android:layout_width="30dp"
@@ -32,6 +27,7 @@ dependencies {
     app:animationDuration="5000"/>
 ```
 
+####Attributes
 | Attribute | Description |
 | --- | --- |
 | `pointColor` | Color of the points |
