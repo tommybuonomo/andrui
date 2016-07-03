@@ -7,13 +7,8 @@ A cool circle loading animation inspired by [this post](http://www.materialup.co
 ##How to
 ###Installation
 ```Gradle
-repositories {
-    maven {
-        url  "https://dl.bintray.com/tbuonomo/maven/"
-    }
-}
 dependencies {
-    compile 'com.tbuonomo.andrui:circleloading:0.2'
+    compile 'com.tbuonomo.andrui:circleloading:1.0.0'
 }
 ```
 ###Attributes
