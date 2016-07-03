@@ -23,3 +23,51 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
 }
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+    }
+}
+
+group = 'com.tbuonomo.andrui'
+version = '1.0.0'
+
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+artifacts {
+    archives generateSourcesJar
+}
+
+bintray {
+    def Properties localProps = new Properties()
+    localProps.load(new FileInputStream(file('../local.properties')))
+
+    user = localProps.getProperty("bintrayUser")
+    key = localProps.getProperty("bintrayApiKey")
+    pkg {
+        repo = 'maven'
+        name = 'bounce-circle-loading'
+
+        version {
+            name = '1.0.0'
+            desc = 'A cool bounce circle loading animation in Android'
+            vcsTag = '1.0.0'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/tommybuonomo/andrui'
+        websiteUrl = 'https://github.com/tommybuonomo/andrui'
+    }
+    configurations = ['archives']
+}
