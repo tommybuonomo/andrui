@@ -3,7 +3,7 @@
 A cool fast circle loading animation inspired by [this post](http://www.materialup.com/posts/loading-animation-interface) on [MaterialUp](http://www.materialup.com/)
 
 ![ezgif com-video-to-gif 6](https://cloud.githubusercontent.com/assets/15737675/16543142/41550baa-40c7-11e6-81a0-54319f2ab15e.gif) ![ezgif com-video-to-gif 7](https://cloud.githubusercontent.com/assets/15737675/16544800/2beff760-4113-11e6-9dc4-c9304e93c657.gif)
-![ezgif com-video-to-gif 8](https://cloud.githubusercontent.com/assets/15737675/16544837/ed71fb9e-4114-11e6-8299-65477a545fc6.gif)
+![ezgif com-video-to-gif 13](https://cloud.githubusercontent.com/assets/15737675/16546782/fe6714f2-4155-11e6-9d14-9a2770913ab7.gif) ![ezgif com-video-to-gif 14](https://cloud.githubusercontent.com/assets/15737675/16546787/3fb741ac-4156-11e6-8a98-4ece3e29f431.gif)
 
 
 ##How to
@@ -28,6 +28,7 @@ compile 'com.tbuonomo.andrui:fastcircleloading:0.1'
 | Attribute | Description |
 | --- | --- |
 | `pointColor` | Color of the points |
+| `backgroundColor` | Color of the background circle |
 | `pointSize` | Size of the points in dp (by default 5dp) |
 | `interpolator` | The interpolator to use for the points animation (by default `fastOutSlowIn`) |
 | `animationDuration` | Step duration of the animation in ms (by default 2000) |
