@@ -20,7 +20,7 @@ import android.widget.RelativeLayout;
  * Created by tommy on 02/07/16.
  */
 public class CircleLoading extends RelativeLayout {
-    private static final int DEFAULT_DURATION = 1000;
+    private static final int DEFAULT_DURATION = 500;
     private static final int DEFAULT_INNER_APLHA = 255;
     private static final int DEFAULT_OUTER_APLHA = 120;
 
