@@ -11,7 +11,7 @@ buildscript {
 }
 
 group = 'com.tbuonomo.andrui'
-version = '0.2'
+version = '1.0.0'
 
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
@@ -36,9 +36,9 @@ bintray {
         name = 'circle-loading'
 
         version {
-            name = '0.2'
-            desc = 'Add checkstyle and resolve .jar'
-            vcsTag = '0.2'
+            name = '1.0.0'
+            desc = 'A cool circle loading animation in Android'
+            vcsTag = '1.0.0'
         }
 
         licenses = ['Apache-2.0']
@@ -56,7 +56,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
