@@ -35,7 +35,7 @@ dependencies {
 | outerColor | Color of the outer circle |
 | innerAlpha | Opacity of the inner circle beetween 0 and 255 (by default 255) |
 | outerAlpha | Opacity of the outer circle beetween 0 and 255 (by default 120) |
-| animationDuration | Step duration of the animation in ms (by default 1000) |
+| animationDuration | Step duration of the animation in ms (by default 500) |
 
 ##License
     Copyright 2016 Tommy Buonomo
