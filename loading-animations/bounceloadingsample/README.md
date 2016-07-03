@@ -7,7 +7,14 @@ A cool bounce circle loading animation inspired by [this post](http://www.materi
 ##How to
 ###Installation
 ```Gradle
-compile 'com.tbuonomo.andrui:bounceloading:0.1'
+repositories {
+    maven {
+        url  "https://dl.bintray.com/tbuonomo/maven/"
+    }
+}
+dependencies {
+    compile 'com.tbuonomo.andrui:bounceloading:1.0.0'
+}
 ```
 ###Attributes
 ```Xml
