@@ -51,7 +51,7 @@ artifacts {
 
 bintray {
     def Properties localProps = new Properties()
-    localProps.load(new FileInputStream(file('../local.properties')))
+    localProps.load(new FileInputStream(file('local.properties')))
 
     user = localProps.getProperty("bintrayUser")
     key = localProps.getProperty("bintrayApiKey")

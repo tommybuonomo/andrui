@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="BounceCircleLoading">
+    <declare-styleable name="BounceCircleLoadingView">
         <attr name="pointColor" format="color" />
         <attr name="animationDuration" format="integer" />
         <attr name="backgroundColor" format="color" />

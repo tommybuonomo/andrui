@@ -23,7 +23,7 @@ import android.widget.RelativeLayout;
 /**
  * Created by tommy on 02/07/16.
  */
-public class BounceCircleLoading extends RelativeLayout {
+public class BounceCircleLoadingView extends RelativeLayout {
     private static final int DEFAULT_DURATION = 700;
     private static final int DEFAULT_POINT_COLOR = Color.WHITE;
     private static final int DEFAULT_BACKGROUND_COLOR = Color.parseColor("#01579B");
@@ -51,22 +51,24 @@ public class BounceCircleLoading extends RelativeLayout {
     private Interpolator mInterpolator;
     private PointF mLeftPoint, mRightPoint, mCenterPoint;
 
-    public BounceCircleLoading(Context context) {
+    public BounceCircleLoadingView(Context context) {
         super(context);
         init(context, null);
     }
 
-    public BounceCircleLoading(Context context, AttributeSet attrs) {
+    public BounceCircleLoadingView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public BounceCircleLoading(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BounceCircleLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
+        removeViewsIfNeeded();
+
         mLeftCircle = new ImageView(context);
         mLeftCircle.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.point_circle));
 
@@ -85,8 +87,8 @@ public class BounceCircleLoading extends RelativeLayout {
         addView(mRightCircle);
 
         if (attrs != null) {
-            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BounceCircleLoading);
-            int pointColor = a.getColor(R.styleable.BounceCircleLoading_pointColor, -1);
+            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.BounceCircleLoadingView);
+            int pointColor = a.getColor(R.styleable.BounceCircleLoadingView_pointColor, -1);
             setUpCircleColors(mLeftCircle, pointColor == -1 ?
                     DEFAULT_POINT_COLOR : pointColor);
             setUpCircleColors(mCenterCircle, pointColor == -1 ?
@@ -94,16 +96,16 @@ public class BounceCircleLoading extends RelativeLayout {
             setUpCircleColors(mRightCircle, pointColor == -1 ?
                     DEFAULT_POINT_COLOR : pointColor);
 
-            int backgroundColor = a.getColor(R.styleable.BounceCircleLoading_backgroundColor, -1);
+            int backgroundColor = a.getColor(R.styleable.BounceCircleLoadingView_backgroundColor, -1);
             setUpCircleColors(mBackgroundCircle, backgroundColor == -1 ? DEFAULT_BACKGROUND_COLOR : backgroundColor);
 
-            int duration = a.getInt(R.styleable.BounceCircleLoading_animationDuration, -1);
-            int interpolator = a.getInt(R.styleable.BounceCircleLoading_interpolator, -1);
+            int duration = a.getInt(R.styleable.BounceCircleLoadingView_animationDuration, -1);
+            int interpolator = a.getInt(R.styleable.BounceCircleLoadingView_interpolator, -1);
             mInterpolator = interpolator == -1 ? mInterpolator = InterpolatorValues.FAST_IN_FAST_OUT.getInterpolator() :
                     InterpolatorValues.values()[interpolator].getInterpolator();
             mDuration = duration == -1 || duration < 0 ? DEFAULT_DURATION : duration;
 
-            int pointSize = a.getDimensionPixelSize(R.styleable.BounceCircleLoading_pointSize, -1);
+            int pointSize = a.getDimensionPixelSize(R.styleable.BounceCircleLoadingView_pointSize, -1);
             if (pointSize != -1) {
                 setUpCircleSize(pointSize, mLeftCircle);
                 setUpCircleSize(pointSize, mRightCircle);
@@ -121,6 +123,12 @@ public class BounceCircleLoading extends RelativeLayout {
             setUpCircleColors(mBackgroundCircle, DEFAULT_BACKGROUND_COLOR);
 
             mDuration = DEFAULT_DURATION;
+        }
+    }
+
+    private void removeViewsIfNeeded() {
+        if (getChildCount() > 0) {
+            removeAllViews();
         }
     }
 
@@ -244,7 +252,7 @@ public class BounceCircleLoading extends RelativeLayout {
         gradientDrawable.setColor(color);
     }
 
-    //**********************************************************
+    //*********************************************************
     // Users Methods
     //*********************************************************
 
@@ -256,5 +264,19 @@ public class BounceCircleLoading extends RelativeLayout {
         setUpCircleColors(mLeftCircle, color);
         setUpCircleColors(mRightCircle, color);
         setUpCircleColors(mCenterCircle, color);
+    }
+
+    //*********************************************************
+    // Lifecycle
+    //*********************************************************
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (mCircleAnimator != null) {
+            mCircleAnimator.end();
+            mCircleAnimator.removeAllListeners();
+            mCircleAnimator = null;
+        }
     }
 }

@@ -11,7 +11,7 @@
     tools:context="com.tbuonomo.bounceloadingsample.MainActivity"
     android:background="#383838">
 
-    <com.tbuonomo.bounceloading.BounceCircleLoading
+    <com.tbuonomo.bounceloading.BounceCircleLoadingView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"/>
