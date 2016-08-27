@@ -1,4 +1,4 @@
-#Fast Circle Loading Animation
+#Bounce Circle Loading Animation
 
 A cool bounce circle loading animation inspired by [this post](http://www.materialup.com/posts/loading-interface) on [MaterialUp](http://www.materialup.com/)
 
